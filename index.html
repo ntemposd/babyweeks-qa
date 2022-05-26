@@ -27,52 +27,42 @@
 		<div class="row text-center">
 
 			<!--- Input (type=date) -->
-			<h2 class="display-6 fw-bold text-dark py-3">🎂 Insert Birthdate</h2>
+			<span class="display-5 mt-2">🎂</span>
+			<h2 class="display-6 fw-bold text-dark py-2">Insert Birthdate</h2>
 			<div class="col-sm-12">
 				<input type="date" id="birthday">
 			</div>
-			<!--- Input (type=text)
-			<div class="input-group mb-3">
-		  	<div class="input-group-prepend">
-		    	<span class="input-group-text" id="basic-addon1">🎂 Insert Birthdate</span>
-		  	</div>
-		  	<input id="birthday" type="text" class="form-control" placeholder="22/9/2021" aria-label="Username" aria-describedby="basic-addon1">
-			</div>
-			-->
 
 			<!-- Pass Input to PyScript -->
 			<div class="col-sm-12">
-				<button id="run" pys-onClick="calculate" type="button" class="btn btn-dark btn-lg my-4 me-md-2 fw-bold">Calculate</button>
+				<button id="run" pys-onClick="calculate" type="button" class="btn btn-dark btn-lg mt-3 me-md-2 fw-bold">Calculate</button>
 			</div>
 
 			<!-- Get Output -->
-			<div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-				<h3 class="display-7 fw-bold text-dark py-3">My baby is _<span id="output"></span>_ weeks young</h3>
-			</div>
-
+			<h3 class="display-6 text-dark my-4">My baby is <span class="fw-bold" id="result"></span> weeks young</h3>
 		</div>
 
 	</div>
 
 <!-- footer -->
 
-
 	<footer class="footer">
-		<p class="text-center text-muted">Crafted with ❤ by <a href="mailto:ntemposd@gmail.com"><strong>ntemposd</strong></a></p>
+		<p class="text-center text-muted">Crafted with ❤ by <a href="mailto:ntemposd@gmail.com">ntemposd</a></p>
 	</footer>
 
 <py-script>
 # Import packages
-import datetime
+import datetime as dt
 
 # Define HTML elements and inputs
-output = Element("output")
+output = Element("result")
 input = Element("birthday")
+today = dt.date.today()
 
 # Calculate
 def calculate(*args, **kwargs):
-	today = datetime.date.today()
-	birthdate = datetime.datetime.strptime("input","%Y-%m-%d")
+	birthday = input.value
+	birthdate = dt.datetime.strptime(birthday,"%Y-%m-%d").date()
 	delta = (today-birthdate).days//7
 	output.write(delta)
 </py-script>
