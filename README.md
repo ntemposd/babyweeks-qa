@@ -8,7 +8,7 @@ Clone this repository on your computer, make sure you are connected to the inter
 
 # Next Up
 
-An unprioritized list; feel free to fork and contribute.
+Babyweeks is currently in BETA. Here is an unprioritized list; feel free to fork and contribute.
 
 * Translate into more languages
 * Add year 1+ transitions content
