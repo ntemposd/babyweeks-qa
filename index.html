@@ -260,7 +260,9 @@ def calculate(*args):
 	di.className = "hide"
 	rb.className = "hide show"
 	arrow.className = "hide show"
-	if 0 < weeksold < 4:
+	if weeksold < 0:
+		explanation.write("Your baby was born in the future!")
+	elif 0 < weeksold < 4:
 		leap1.className = "hide show"
 		explanation.write("Transition 1 is approaching.")
 	elif 4 <= weeksold <= 6:
@@ -309,7 +311,7 @@ def calculate(*args):
 		leap8.className = "hide show"
 		explanation.write("You are right in Transition 8.")
 	else:
-		explanation.write("Well done! Your baby is no more an infant. Year 1+ content is not supported in Babyweeks Beta. Keep calm and v1 is soon to be launched.")
+		explanation.write("Well done! Your baby has passed through 8 Transitions so far.")
 		arrow.className = "hide"
 
 # Transition 1 controls
